@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="1.0.0" url="tempActionFolderIdAnalyzer_v1">
+
+<unit revision="1.0.0" language="Java" filename="tempActionFolderIdAnalyzer_v1/java1.java" hash="d0751a2954509d89bd1f3dfb4a7d11e75bc4a67d"><package>package <name>servlets</name>;</package>
+
+<import>import <name><name>java</name><operator>.</operator><name>io</name><operator>.</operator><name>IOException</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>io</name><operator>.</operator><name>PrintWriter</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>ArrayList</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>List</name></name>;</import>
+
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>RequestDispatcher</name></name>;</import>
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>ServletException</name></name>;</import>
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>http</name><operator>.</operator><name>HttpServlet</name></name>;</import>
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>http</name><operator>.</operator><name>HttpServletRequest</name></name>;</import>
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>http</name><operator>.</operator><name>HttpServletResponse</name></name>;</import>
+<import>import <name><name>javax</name><operator>.</operator><name>servlet</name><operator>.</operator><name>http</name><operator>.</operator><name>HttpSession</name></name>;</import>
+
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>constant</name><operator>.</operator><name>BookStoreConstants</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>model</name><operator>.</operator><name>Book</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>model</name><operator>.</operator><name>Cart</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>model</name><operator>.</operator><name>UserRole</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>service</name><operator>.</operator><name>BookService</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>service</name><operator>.</operator><name>impl</name><operator>.</operator><name>BookServiceImpl</name></name>;</import>
+<import>import <name><name>com</name><operator>.</operator><name>bittercode</name><operator>.</operator><name>util</name><operator>.</operator><name>StoreUtil</name></name>;</import>
+
+<class><specifier>public</specifier> class <name>CartServlet</name> <super_list><extends>extends <super><name>HttpServlet</name></super></extends></super_list> <block>{
+
+    <decl_stmt><decl><type><name>BookService</name></type> <name>bookService</name> <init>= <expr><operator>new</operator> <call><name>BookServiceImpl</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+    <function><type><specifier>public</specifier> <name>void</name></type> <name>service</name><parameter_list>(<parameter><decl><type><name>HttpServletRequest</name></type> <name>req</name></decl></parameter>, <parameter><decl><type><name>HttpServletResponse</name></type> <name>res</name></decl></parameter>)</parameter_list> <throws>throws <argument><expr><name>IOException</name></expr></argument>, <argument><expr><name>ServletException</name></expr></argument></throws> <block>{<block_content>
+        <decl_stmt><decl><type><name>PrintWriter</name></type> <name>pw</name> <init>= <expr><call><name><name>res</name><operator>.</operator><name>getWriter</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>res</name><operator>.</operator><name>setContentType</name></name><argument_list>(<argument><expr><name><name>BookStoreConstants</name><operator>.</operator><name>CONTENT_TYPE_TEXT_HTML</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <comment type="line">// Check if Customer is logged In</comment>
+        <if_stmt><if>if <condition>(<expr><operator>!</operator><call><name><name>StoreUtil</name><operator>.</operator><name>isLoggedIn</name></name><argument_list>(<argument><expr><name><name>UserRole</name><operator>.</operator><name>CUSTOMER</name></name></expr></argument>, <argument><expr><call><name><name>req</name><operator>.</operator><name>getSession</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>)</condition> <block>{<block_content>
+            <decl_stmt><decl><type><name>RequestDispatcher</name></type> <name>rd</name> <init>= <expr><call><name><name>req</name><operator>.</operator><name>getRequestDispatcher</name></name><argument_list>(<argument><expr><literal type="string">"CustomerLogin.html"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>rd</name><operator>.</operator><name>include</name></name><argument_list>(<argument><expr><name>req</name></expr></argument>, <argument><expr><name>res</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"&lt;table class=\"tab\"&gt;&lt;tr&gt;&lt;td&gt;Please Login First to Continue!!&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <return>return;</return>
+        </block_content>}</block></if></if_stmt>
+        <try>try <block>{<block_content>
+            <comment type="line">// Add/Remove Item from the cart if requested</comment>
+            <comment type="line">// store the comma separated bookIds of cart in the session</comment>
+            <expr_stmt><expr><call><name><name>StoreUtil</name><operator>.</operator><name>updateCartItems</name></name><argument_list>(<argument><expr><name>req</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <decl_stmt><decl><type><name>HttpSession</name></type> <name>session</name> <init>= <expr><call><name><name>req</name><operator>.</operator><name>getSession</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <decl_stmt><decl><type><name>String</name></type> <name>bookIds</name> <init>= <expr><literal type="string">""</literal></expr></init></decl>;</decl_stmt>
+            <if_stmt><if>if <condition>(<expr><call><name><name>session</name><operator>.</operator><name>getAttribute</name></name><argument_list>(<argument><expr><literal type="string">"items"</literal></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><block type="pseudo"><block_content>
+                <expr_stmt><expr><name>bookIds</name> <operator>=</operator> <operator>(</operator><name>String</name><operator>)</operator> <call><name><name>session</name><operator>.</operator><name>getAttribute</name></name><argument_list>(<argument><expr><literal type="string">"items"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt></block_content></block></if></if_stmt><comment type="line">// read comma separated bookIds from session</comment>
+
+            <decl_stmt><decl><type><name>RequestDispatcher</name></type> <name>rd</name> <init>= <expr><call><name><name>req</name><operator>.</operator><name>getRequestDispatcher</name></name><argument_list>(<argument><expr><literal type="string">"CustomerHome.html"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>rd</name><operator>.</operator><name>include</name></name><argument_list>(<argument><expr><name>req</name></expr></argument>, <argument><expr><name>res</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <comment type="line">// Set the active tab as cart</comment>
+            <expr_stmt><expr><call><name><name>StoreUtil</name><operator>.</operator><name>setActiveTab</name></name><argument_list>(<argument><expr><name>pw</name></expr></argument>, <argument><expr><literal type="string">"cart"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <comment type="line">// Read the books from the database with the respective bookIds</comment>
+            <decl_stmt><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>Book</name></argument>&gt;</argument_list></name></type> <name>books</name> <init>= <expr><call><name><name>bookService</name><operator>.</operator><name>getBooksByCommaSeperatedBookIds</name></name><argument_list>(<argument><expr><name>bookIds</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <decl_stmt><decl><type><name><name>List</name><argument_list type="generic">&lt;<argument><name>Cart</name></argument>&gt;</argument_list></name></type> <name>cartItems</name> <init>= <expr><operator>new</operator> <call><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Cart</name></argument>&gt;</argument_list></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"&lt;div id='topmid' style='background-color:grey'&gt;Shopping Cart&lt;/div&gt;"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"&lt;table class=\"table table-hover\" style='background-color:white'&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"  &lt;thead&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"    &lt;tr style='background-color:black; color:white;'&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;BookId&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;Name&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;Author&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;Price/Item&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;Quantity&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"      &lt;th scope=\"col\"&gt;Amount&lt;/th&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"    &lt;/tr&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"  &lt;/thead&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"  &lt;tbody&gt;\r\n"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <decl_stmt><decl><type><name>double</name></type> <name>amountToPay</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+            <if_stmt><if>if <condition>(<expr><name>books</name> <operator>==</operator> <literal type="null">null</literal> <operator>||</operator> <call><name><name>books</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call> <operator>==</operator> <literal type="number">0</literal></expr>)</condition> <block>{<block_content>
+                <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"    &lt;tr style='background-color:green'&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"      &lt;th scope=\"row\" colspan='6' style='color:yellow; text-align:center;'&gt; No Items In the Cart &lt;/th&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"    &lt;/tr&gt;\r\n"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            </block_content>}</block></if></if_stmt>
+            <for>for <control>(<init><decl><type><name>Book</name></type> <name>book</name> <range>: <expr><name>books</name></expr></range></decl></init>)</control> <block>{<block_content>
+                <decl_stmt><decl><type><name>int</name></type> <name>qty</name> <init>= <expr><operator>(</operator><name>int</name><operator>)</operator> <call><name><name>session</name><operator>.</operator><name>getAttribute</name></name><argument_list>(<argument><expr><literal type="string">"qty_"</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getBarcode</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+                <decl_stmt><decl><type><name>Cart</name></type> <name>cart</name> <init>= <expr><operator>new</operator> <call><name>Cart</name><argument_list>(<argument><expr><name>book</name></expr></argument>, <argument><expr><name>qty</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+                <expr_stmt><expr><call><name><name>cartItems</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>cart</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><name>amountToPay</name> <operator>+=</operator> <operator>(</operator><name>qty</name> <operator>*</operator> <call><name><name>book</name><operator>.</operator><name>getPrice</name></name><argument_list>()</argument_list></call><operator>)</operator></expr>;</expr_stmt>
+                <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><call><name>getRowData</name><argument_list>(<argument><expr><name>cart</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            </block_content>}</block></for>
+
+            <comment type="line">// set cartItems and amountToPay in the session</comment>
+            <expr_stmt><expr><call><name><name>session</name><operator>.</operator><name>setAttribute</name></name><argument_list>(<argument><expr><literal type="string">"cartItems"</literal></expr></argument>, <argument><expr><name>cartItems</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>session</name><operator>.</operator><name>setAttribute</name></name><argument_list>(<argument><expr><literal type="string">"amountToPay"</literal></expr></argument>, <argument><expr><name>amountToPay</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <if_stmt><if>if <condition>(<expr><name>amountToPay</name> <operator>&gt;</operator> <literal type="number">0</literal></expr>)</condition> <block>{<block_content>
+                <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"    &lt;tr style='background-color:green'&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"      &lt;th scope=\"row\" colspan='5' style='color:yellow; text-align:center;'&gt; Total Amount To Pay &lt;/th&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"      &lt;td colspan='1' style='color:white; font-weight:bold'&gt;&lt;span&gt;&amp;#8377;&lt;/span&gt; "</literal>
+                        <operator>+</operator> <name>amountToPay</name>
+                        <operator>+</operator> <literal type="string">"&lt;/td&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"    &lt;/tr&gt;\r\n"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            </block_content>}</block></if></if_stmt>
+            <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"  &lt;/tbody&gt;\r\n"</literal>
+                    <operator>+</operator> <literal type="string">"&lt;/table&gt;"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <if_stmt><if>if <condition>(<expr><name>amountToPay</name> <operator>&gt;</operator> <literal type="number">0</literal></expr>)</condition> <block>{<block_content>
+                <expr_stmt><expr><call><name><name>pw</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"&lt;div style='text-align:right; margin-right:20px;'&gt;\r\n"</literal>
+                        <operator>+</operator> <literal type="string">"&lt;form action=\"checkout\" method=\"post\"&gt;"</literal>
+                        <operator>+</operator> <literal type="string">"&lt;input type='submit' class=\"btn btn-primary\" name='pay' value='Proceed to Pay &amp;#8377; "</literal>
+                        <operator>+</operator> <name>amountToPay</name> <operator>+</operator> <literal type="string">"'/&gt;&lt;/form&gt;"</literal>
+                        <operator>+</operator> <literal type="string">"    &lt;/div&gt;"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            </block_content>}</block></if></if_stmt>
+        </block_content>}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{<block_content>
+            <expr_stmt><expr><call><name><name>e</name><operator>.</operator><name>printStackTrace</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+        </block_content>}</block></catch></try>
+    </block_content>}</block></function>
+
+    <function><type><specifier>public</specifier> <name>String</name></type> <name>getRowData</name><parameter_list>(<parameter><decl><type><name>Cart</name></type> <name>cart</name></decl></parameter>)</parameter_list> <block>{<block_content>
+        <decl_stmt><decl><type><name>Book</name></type> <name>book</name> <init>= <expr><call><name><name>cart</name><operator>.</operator><name>getBook</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <return>return <expr><literal type="string">"    &lt;tr&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;th scope=\"row\"&gt;"</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getBarcode</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">"&lt;/th&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;td&gt;"</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">"&lt;/td&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;td&gt;"</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getAuthor</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">"&lt;/td&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;td&gt;&lt;span&gt;&amp;#8377;&lt;/span&gt; "</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getPrice</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">"&lt;/td&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;td&gt;&lt;form method='post' action='cart'&gt;&lt;button type='submit' name='removeFromCart' class=\"glyphicon glyphicon-minus btn btn-danger\"&gt;&lt;/button&gt; "</literal>
+                <operator>+</operator> <literal type="string">"&lt;input type='hidden' name='selectedBookId' value='"</literal> <operator>+</operator> <call><name><name>book</name><operator>.</operator><name>getBarcode</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">"'/&gt;"</literal>
+                <operator>+</operator> <call><name><name>cart</name><operator>.</operator><name>getQuantity</name></name><argument_list>()</argument_list></call>
+                <operator>+</operator> <literal type="string">" &lt;button type='submit' name='addToCart' class=\"glyphicon glyphicon-plus btn btn-success\"&gt;&lt;/button&gt;&lt;/form&gt;&lt;/td&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"      &lt;td&gt;&lt;span&gt;&amp;#8377;&lt;/span&gt; "</literal> <operator>+</operator> <operator>(</operator><call><name><name>book</name><operator>.</operator><name>getPrice</name></name><argument_list>()</argument_list></call> <operator>*</operator> <call><name><name>cart</name><operator>.</operator><name>getQuantity</name></name><argument_list>()</argument_list></call><operator>)</operator> <operator>+</operator> <literal type="string">"&lt;/td&gt;\r\n"</literal>
+                <operator>+</operator> <literal type="string">"    &lt;/tr&gt;\r\n"</literal></expr>;</return>
+    </block_content>}</block></function>
+
+}</block></class></unit>
+
+</unit>

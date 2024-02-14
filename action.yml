@@ -1,0 +1,24 @@
+name: "id-analyzer-action4"
+description: "Analyze the quality of your identifiers for sure"
+author: "Remo Gresta"
+# inputs:
+#   repo:
+#     required: true
+#     description: "name of the repository"
+#   owner:
+#     required: true
+#     description: "owner of the repository"
+#   branch:
+#     required: false
+#     description: "branch of the repository"
+#     default: "master"
+# outputs:
+#   out:
+    description: "Test"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.repo}}
+    - ${{ inputs.owner}}
+    - ${{ inputs.branch}}

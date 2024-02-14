@@ -1,0 +1,16 @@
+Identificador,Tipo,Categoria,Posicao,Projeto
+ bookService ,BookService,6,Atributo,projeto
+ pw ,PrintWriter,10,Variavel,projeto
+ rd ,RequestDispatcher,10,Variavel,projeto
+ session ,HttpSession,10,Variavel,projeto
+ bookIds ,String,6,Variavel,projeto
+ rd ,RequestDispatcher,10,Variavel,projeto
+ books ,List,10,Variavel,projeto
+ cartItems ,List,6,Variavel,projeto
+ amountToPay ,double,7,Variavel,projeto
+ qty ,int,10,Variavel,projeto
+ cart ,Cart,10,Variavel,projeto
+ rd ,RequestDispatcher,10,if,projeto
+ qty ,int,10,For,projeto
+ cart ,Cart,10,For,projeto
+ book ,Book,10,Variavel,projeto
