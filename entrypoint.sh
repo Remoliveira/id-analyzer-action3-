@@ -14,9 +14,9 @@ tar xzf srcml_1.0.0-1_ubuntu20.04.tar.gz
 
 #setup directory
 mkdir tempActionFolderIdAnalyzer_v1
-shopt -s extglob
-mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
-# mv java1.java tempActionFolderIdAnalyzer_v1/
+# shopt -s extglob
+# mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
+mv java1.java tempActionFolderIdAnalyzer_v1/
 
 #convert files to srcml
 srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
