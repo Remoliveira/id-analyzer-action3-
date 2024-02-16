@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-RUN apt-get update && apt-get
+RUN apt-get update
 
 
 ENTRYPOINT ["/entrypoint.sh"]
