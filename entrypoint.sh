@@ -1,8 +1,11 @@
 #!/bin/sh -l
 
 # download and install srcml
+ls
+whoami
 wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
-dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
+apt install srcml_1.0.0-1_ubuntu20.04.deb
+# dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 
 #setup directory
 mkdir tempActionFolderIdAnalyzer_v1
