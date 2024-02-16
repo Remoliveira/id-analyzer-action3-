@@ -3,10 +3,13 @@
 # download and install srcml
 ls
 whoami
-sudo apt-get install dpkg
-sudo dpkg -l | grep apt
-wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
-apt install srcml_1.0.0-1_ubuntu20.04.deb
+# apt-get install dpkg
+# dpkg -l | grep apt
+# wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
+wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.tar.gz
+tar xzf srcml_1.0.0-1_ubuntu20.04.tar.gz
+
+
 # dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 
 #setup directory
