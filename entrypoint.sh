@@ -10,6 +10,8 @@ apt update
 wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.tar.gz
 ls
 whoami
+compgen -c
+du
 tar xzf srcml_1.0.0-1_ubuntu20.04.tar.gz
 
 
@@ -20,7 +22,8 @@ mkdir tempActionFolderIdAnalyzer_v1
 # shopt -s extglob
 # mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 mv java1.java tempActionFolderIdAnalyzer_v1/
-
+ls
+whoami
 #convert files to srcml
 srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 
