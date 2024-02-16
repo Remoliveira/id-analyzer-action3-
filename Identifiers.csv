@@ -28,3 +28,33 @@ nome,tipo,posicao,projeto,arquivo,nomeClasse,nomeMetodo
 "
  book ,Book,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"getRowData
 "
+nome,tipo,posicao,projeto,arquivo,nomeClasse,nomeMetodo
+ bookService ,BookService,Atributo,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,
+ pw ,PrintWriter,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ rd ,RequestDispatcher,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java item,CartServlet,"service
+"
+ session ,HttpSession,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ bookIds ,String,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ rd ,RequestDispatcher,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java item,CartServlet,"service
+"
+ books ,List,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ cartItems ,List,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ amountToPay ,double,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ qty ,int,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ cart ,Cart,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ rd ,RequestDispatcher,if,master.xml,tempActionFolderIdAnalyzer_v1/java1.java item,CartServlet,"service
+"
+ qty ,int,For,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ cart ,Cart,For,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"service
+"
+ book ,Book,Variavel,master.xml,tempActionFolderIdAnalyzer_v1/java1.java,CartServlet,"getRowData
+"
