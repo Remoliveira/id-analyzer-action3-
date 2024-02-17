@@ -19,6 +19,7 @@ RUN  apt-get install -y pip
 COPY entrypoint.sh /entrypoint.sh
 
 COPY CatchIdentifiers.py /app/CatchIdentifiers.py
+COPY setCategories.py /app/setCategories.py
 WORKDIR /app
 
 

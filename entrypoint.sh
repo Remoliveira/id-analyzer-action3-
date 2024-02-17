@@ -28,13 +28,13 @@ srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 #generate a file with the identifiers within the project
 ls
 pwd
-python3 CatchIdentifiers.py
+python3 app/CatchIdentifiers.py
 
 #install python dependencies
 pip install pandas
 
 #run categories algorithm
-python3 setCategories.py
+python3 app/setCategories.py
 
 
 
