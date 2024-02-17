@@ -20,6 +20,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 COPY CatchIdentifiers.py /CatchIdentifiers.py
 RUN ls
+RUN pwd
 
 
 ENTRYPOINT ["/entrypoint.sh"]
