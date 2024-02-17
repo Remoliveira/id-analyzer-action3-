@@ -12,9 +12,14 @@ RUN dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
 
 RUN  apt-get install -y python3
 
+RUN  apt-get install -y pip
+
 
 
 COPY entrypoint.sh /entrypoint.sh
+
+COPY CatchIdentifiers.py /CatchIdentifiers.py
+RUN ls
 
 
 ENTRYPOINT ["/entrypoint.sh"]
