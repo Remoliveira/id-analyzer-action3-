@@ -25,6 +25,8 @@ whoami
 srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 
 #generate a file with the identifiers within the project
+ls
+pwd
 python3 CatchIdentifiers.py
 
 #install python dependencies
