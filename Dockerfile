@@ -1,6 +1,6 @@
-FROM alpine:3.10
+FROM ubuntu:latest
 
-RUN apt-get
+RUN apt-get update
 
 COPY entrypoint.sh /entrypoint.sh
 
