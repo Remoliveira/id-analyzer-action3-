@@ -28,6 +28,9 @@ srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 #generate a file with the identifiers within the project
 ls
 pwd
+
+ls -la /github/workspace
+
 python3 app/CatchIdentifiers.py
 
 #install python dependencies
