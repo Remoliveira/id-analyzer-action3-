@@ -1,4 +1,5 @@
-#!/bin/sh -l
+#!/bin/bash
+############!/bin/sh -l
 
 # download and install srcml
 ls
