@@ -4,8 +4,6 @@
 ls
 whoami
 
-# apt-get install dpkg
-# dpkg -l | grep apt
 wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 
 dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
