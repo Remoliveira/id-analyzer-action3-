@@ -2,8 +2,7 @@
 FROM ubuntu:latest
 
 RUN apt-get && \
-    apt-get install -y wget python3 python3-pip && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install  wget 
 
 COPY entrypoint.sh /entrypoint.sh
 
