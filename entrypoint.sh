@@ -5,18 +5,18 @@
 ls
 whoami
 
-wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
+# wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 
-dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
-# wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.tar.gz
+# dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
+
 
 
 # tar xzf srcml_1.0.0-1_ubuntu20.04.tar.gz
 
 #setup directory
-mkdir tempActionFolderIdAnalyzer_v1
-shopt -s extglob
-mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
+# mkdir tempActionFolderIdAnalyzer_v1
+# shopt -s extglob
+# mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 # mv java1.java tempActionFolderIdAnalyzer_v1/
 
 

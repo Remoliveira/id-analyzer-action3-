@@ -15,6 +15,13 @@ RUN  apt-get install -y python3
 RUN  apt-get install -y pip
 
 
+RUN wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
+
+RUN dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
+
+RUN mkdir tempActionFolderIdAnalyzer_v1
+RUN shopt -s extglob
+RUN mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 
 COPY entrypoint.sh /entrypoint.sh
 
@@ -22,8 +29,11 @@ COPY CatchIdentifiers.py /app/CatchIdentifiers.py
 COPY setCategories.py /app/setCategories.py
 WORKDIR /app
 
+RUN pip install pandas
 
+RUN python3 app/CatchIdentifiers.py
 
+RUN python3 app/setCategories.py
 
 RUN ls
 RUN pwd
