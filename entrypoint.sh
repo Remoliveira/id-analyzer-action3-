@@ -6,12 +6,7 @@ ls
 pwd
 
 # wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
-
 # dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
-
-
-
-# tar xzf srcml_1.0.0-1_ubuntu20.04.tar.gz
 
 #setup directory
 mkdir tempActionFolderIdAnalyzer_v1
@@ -30,6 +25,13 @@ ls
 pwd
 
 ls -la /github/workspace
+
+ls -la /app
+
+cd .. 
+ls
+cd ..
+ls
 
 python3 app/CatchIdentifiers.py
 
