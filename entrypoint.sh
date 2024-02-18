@@ -29,8 +29,10 @@ ls -la /github/workspace
 ls -la /app
 
 cd .. 
+pwd
 ls
 cd ..
+pwd
 ls
 
 python3 app/CatchIdentifiers.py
