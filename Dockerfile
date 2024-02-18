@@ -31,7 +31,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 COPY CatchIdentifiers.py /CatchIdentifiers.py
 COPY setCategories.py /setCategories.py
-# WORKDIR /app
+WORKDIR /
 
 RUN pip install pandas
 

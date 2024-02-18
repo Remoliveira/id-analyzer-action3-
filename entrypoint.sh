@@ -37,7 +37,7 @@ ls
 python3 /app/CatchIdentifiers.py
 
 #install python dependencies
-pip install pandas
+# pip install pandas
 
 #run categories algorithm
 python3 /app/setCategories.py
