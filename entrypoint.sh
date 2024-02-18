@@ -28,20 +28,22 @@ ls -la /github/workspace
 
 ls -la /app
 
+echo primeiro cd 
 cd .. 
 pwd
 ls
+echo segundo cd
 cd ..
 pwd
 ls
 
-python3 app/CatchIdentifiers.py
+python3 CatchIdentifiers.py
 
 #install python dependencies
 pip install pandas
 
 #run categories algorithm
-python3 app/setCategories.py
+python3 setCategories.py
 
 
 
