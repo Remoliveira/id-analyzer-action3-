@@ -29,7 +29,7 @@ ls -la /github/workspace
 ls -la /app
 
 echo primeiro cd app
-cd app
+cd /app
 pwd
 ls
 

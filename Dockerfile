@@ -29,9 +29,9 @@ RUN dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 
 COPY entrypoint.sh /entrypoint.sh
 
-COPY CatchIdentifiers.py /app/CatchIdentifiers.py
-COPY setCategories.py /app/setCategories.py
-WORKDIR /app
+COPY CatchIdentifiers.py /CatchIdentifiers.py
+COPY setCategories.py /setCategories.py
+# WORKDIR /app
 
 RUN pip install pandas
 
