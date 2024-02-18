@@ -23,6 +23,7 @@ RUN wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 RUN dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 
 RUN mkdir tempActionFolderIdAnalyzer_v1
+RUN source ~/.zshrc
 RUN shopt -s extglob
 RUN mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 
