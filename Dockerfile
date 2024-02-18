@@ -1,6 +1,9 @@
 # FROM alpine:3.10
 FROM ubuntu:latest
 
+RUN ls
+RUN pwd
+
 RUN apt-get update && apt-get install -y
 RUN apt install -y wget
 
