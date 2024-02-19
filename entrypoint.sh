@@ -5,9 +5,7 @@
 ls
 pwd
 
-cd ..
-cd ..
-ls
+
 
 # wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 # dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
@@ -19,34 +17,27 @@ mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 # mv java1.java tempActionFolderIdAnalyzer_v1/
 
 
-ls
-whoami
+
 #convert files to srcml
 srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 
 #generate a file with the identifiers within the project
+cd ..
+cd ..
 ls
-pwd
 
+echo ls -la /github/workspace
 ls -la /github/workspace
 
-ls -la /
+echo ls la
 
-ls -la /app
-
-echo primeiro cd app
-cd /app
-pwd
-ls
-
-
-python3 /app/CatchIdentifiers.py
+python3 CatchIdentifiers.py
 
 #install python dependencies
 # pip install pandas
 
 #run categories algorithm
-python3 /app/setCategories.py
+python3 setCategories.py
 
 
 
