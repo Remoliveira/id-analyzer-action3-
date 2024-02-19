@@ -43,6 +43,7 @@ python3 CatchIdentifiers.py
 python3 setCategories.py
 
 python3 results.py
+ls
 
 cat Identifiers.csv
 echo xxxxxxx
