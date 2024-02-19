@@ -26,6 +26,8 @@ pwd
 
 ls -la /github/workspace
 
+ls -la /
+
 ls -la /app
 
 echo primeiro cd app
