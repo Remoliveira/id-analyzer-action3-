@@ -42,9 +42,13 @@ python3 CatchIdentifiers.py
 #run categories algorithm
 python3 setCategories.py
 
+python3 results.py
+
 cat Identifiers.csv
 echo xxxxxxx
 cat IdentificadoresPosProcessamentoDeCategoria.csv
+echo xxxxxxxxxxxxx
+cat FinalResultCategories.csv
 
 
 
