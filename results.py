@@ -12,7 +12,7 @@ def camelSplit(identifier):
 
 
 
-identificadoresCsv = pd.read_csv('IdentificadoresPosProcessamentoDeCategorira.csv')
+identificadoresCsv = pd.read_csv('IdentificadoresPosProcessamentoDeCategoria.csv')
 
 
 with open('FinalResultCategories.csv', mode = 'w') as csv_file:
