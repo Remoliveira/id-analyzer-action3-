@@ -26,10 +26,11 @@ cd ..
 cd ..
 ls
 
-echo ls -la /github/workspace
+echo ls  xxxxxxxxxxx -la /github/workspace
 ls -la /github/workspace
 
-echo ls la
+echo ls xxxxxxx -la /github/workspace
+ls -la /github/workspace/tempActionFolderIdAnalyzer_v1
 
 python3 CatchIdentifiers.py
 
