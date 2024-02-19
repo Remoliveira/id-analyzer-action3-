@@ -24,6 +24,8 @@ srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
 #generate a file with the identifiers within the project
 cd ..
 cd ..
+mv /github/workspace/master.xml /
+
 ls
 
 echo ls  xxxxxxxxxxx -la /github/workspace
