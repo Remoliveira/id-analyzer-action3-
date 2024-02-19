@@ -36,6 +36,8 @@ ls -la /github/workspace/tempActionFolderIdAnalyzer_v1
 
 python3 CatchIdentifiers.py
 
+ls
+
 #install python dependencies
 # pip install pandas
 
