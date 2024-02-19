@@ -21,7 +21,7 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
     writer = csv.DictWriter(csv_file,fieldnames = fieldnames)
     writer.writeheader()
     categoria = 0   
-  
+    print('FinalResultCategories.csv')
     
     for row in identificadoresCsv.iterrows():
      
