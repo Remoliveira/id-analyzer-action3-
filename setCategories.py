@@ -13,7 +13,7 @@ def camelSplit(identifier):
     return [m.group(0).replace("_", "") for m in matches]
 
 
-with open('IdentificadoresPosProcessamentoDeCategorira.csv', mode='a') as csv_file:
+with open('IdentificadoresPosProcessamentoDeCategoria.csv', mode='a') as csv_file:
     fieldnames = ['Identificador', 'Tipo',
                   'Categoria', 'Posicao', 'Projeto']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
