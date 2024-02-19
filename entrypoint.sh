@@ -44,7 +44,7 @@ python3 setCategories.py
 
 cat Identifiers.csv
 echo xxxxxxx
-cat IdentificadoresPosProcessamentoDeCategorira.csv
+cat IdentificadoresPosProcessamentoDeCategoria.csv
 
 
 
