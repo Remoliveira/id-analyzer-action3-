@@ -33,12 +33,6 @@ python3 setCategories.py
 python3 results.py
 
 
-cat Identifiers.csv
-
-cat IdentificadoresPosProcessamentoDeCategoria.csv
-
-cat FinalResultCategories.csv
-
 cat results.txt
 
 

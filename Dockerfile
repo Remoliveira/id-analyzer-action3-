@@ -26,7 +26,7 @@ RUN dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 COPY entrypoint.sh /entrypoint.sh
 
 COPY CatchIdentifiers.py /CatchIdentifiers.py
-COPY setCategories.py /setCategories.py
+
 COPY results.py /results.py
 WORKDIR /
 

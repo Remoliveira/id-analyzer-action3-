@@ -73,7 +73,7 @@ with open('IdentificadoresPosProcessamentoDeCategoria.csv', mode='a') as csv_fil
             categoria = 10
 
         if(re.search("\d$", nomeIdentificador)):
-            # print("id com numero no final: ",nomeIdentificador)
+            print("id com numero no final: ",nomeIdentificador)
             categoria = 1
 
         elif(re.search("\d[a-zA-Z]$", nomeIdentificador)):

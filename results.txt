@@ -1,0 +1,8 @@
+Nomes de identificadores que possuem alguma categoria de nomeação:
+Kings: bookService1
+Median: amount3ToPay
+Ditto: cart cart book
+Diminutive: 
+Cognome: 
+Index: b c
+Shorten: b
