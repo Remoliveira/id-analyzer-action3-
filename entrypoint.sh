@@ -7,8 +7,6 @@ pwd
 
 
 
-# wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
-# dpkg -i srcml_1.0.0-1_ubuntu20.04.deb
 
 #setup directory
 mkdir tempActionFolderIdAnalyzer_v1
@@ -26,30 +24,22 @@ cd ..
 cd ..
 mv /github/workspace/master.xml /
 
-ls
-
-echo ls  xxxxxxxxxxx -la /github/workspace
-ls -la /github/workspace
-
-echo ls xxxxxxx -la /github/workspace
-ls -la /github/workspace/tempActionFolderIdAnalyzer_v1
 
 python3 CatchIdentifiers.py
-
-#install python dependencies
-# pip install pandas
 
 #run categories algorithm
 python3 setCategories.py
 
 python3 results.py
-ls
+
 
 cat Identifiers.csv
-echo xxxxxxx
+
 cat IdentificadoresPosProcessamentoDeCategoria.csv
-echo xxxxxxxxxxxxx
+
 cat FinalResultCategories.csv
+
+cat results.txt
 
 
 

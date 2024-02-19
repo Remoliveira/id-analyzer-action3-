@@ -16,7 +16,7 @@ RUN dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
 RUN  apt-get install -y python3
 
 RUN  apt-get install -y pip
-
+RUN pip install pandas
 
 RUN wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 
@@ -29,12 +29,5 @@ COPY CatchIdentifiers.py /CatchIdentifiers.py
 COPY setCategories.py /setCategories.py
 COPY results.py /results.py
 WORKDIR /
-
-RUN pip install pandas
-
-
-RUN ls
-RUN pwd
-
 
 ENTRYPOINT ["/entrypoint.sh"]

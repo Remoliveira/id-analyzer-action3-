@@ -15,16 +15,39 @@ def camelSplit(identifier):
 identificadoresCsv = pd.read_csv('IdentificadoresPosProcessamentoDeCategoria.csv')
 
 
+kings = []
+median =[]
+ditto = []
+diminutive = []
+cognome = []
+index = []
+shorten = []
+
 with open('FinalResultCategories.csv', mode = 'w') as csv_file:
 
     fieldnames = ['IDENTIFICADOR', 'TIPO', 'POSICAO', 'NUM_DE_PALAVRAS', 'NOME_NUM_FINAL','NOME_NUM_MEIO','NOME_TIPO_IGUAL', 'TIPO_PARTE_NOME','NOME_PARTE_TIPO','NOME_UMA_LETRA','NOME_INICIA_UNDERLINE','LETRA_INICIA_TIPO']
+    
     writer = csv.DictWriter(csv_file,fieldnames = fieldnames)
     writer.writeheader()
     categoria = 0   
-    print('FinalResultCategories.csv')
+
     
+    
+    # 0 - Id que nao se encaixa
+    # 1 - Número final
+    # 2 - Número meio   
+    # 3 - Id igual ao tipo
+    # 4 - Id de uma letra
+    # 5 - Tem o tipo no meio do id 
+    # 6 - Id camel case 2 partes
+    # 7 - Id camel case 3+
+    # 8 - Id separado por underscore
+    # 9 - Id iniciado por underscore
+    # 10 - Id somente uma palavra
+    
+   
     for row in identificadoresCsv.iterrows():
-     
+          
             csvEntries = row[1]
 
             identificador = csvEntries.Identificador
@@ -58,6 +81,7 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
                
                 # print(identificador)
                 idIniciado_ = 1
+      
             else:
                 idIniciado_ = 0
 
@@ -74,17 +98,20 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
             if(re.search("\D+[a-zA-z]+\d+$",identificador)):
                 # print("id com numero no final: ",identificador , "tipo: ", tipo, projeto)
                 numFinal = 1
+                kings.append(identificador)
             else:
                 numFinal = 0
             
             if(re.search("\d+.*\D+$",identificador)):
                 # print("id com numero no meio: ",identificador, "tipo: ",tipo, projeto)
                 numMeio = 1
+                median.append(identificador)
             else:
                 numMeio = 0
             
             if(identificador.casefold() == tipo.casefold()):
                 # print("id == tipo ", identificador, "--", tipo)
+                ditto.append(identificador)
                 idIgualTipo = 1
             else:
                 idIgualTipo = 0
@@ -100,10 +127,12 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
                         
                         if(len(idSplit)> len(tipoSplit)):
                             # print(identificador,"-----",tipo, projeto)
+                            cognome.append(identificador)
                             tipoNoId = 1
 
                         elif(len(tipoSplit)> len(idSplit)):
                             # print(identificador,"-----",tipo, projeto)
+                            diminutive.append(identificador)
                             idNoTipo = 1
 
                         # elif(identificador.casefold() != tipo.casefold()):
@@ -120,26 +149,17 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
             if(len(identificador) == 1):
                 # print(identificador,"--", tipo) 
                 idUmaLetra = 1
+                index.append(identificador)
                 if(len(tipo)>0):
                     if(identificador == tipo[0]):
                         # print(identificador,"--",tipo, projeto)
+                        shorten.append(identificador)
                         letraInicioTipo = 1
                     else:
                         letraInicioTipo = 0
             else:
                 idUmaLetra = 0           
 
-            # 0 - Id que nao se encaixa
-            # 1 - Número final
-            # 2 - Número meio
-            # 3 - Id igual ao tipo
-            # 4 - Id de uma letra
-            # 5 - Tem o tipo no meio do id 
-            # 6 - Id camel case 2 partes
-            # 7 - Id camel case 3+
-            # 8 - Id separado por underscore
-            # 9 - Id iniciado por underscore
-            # 10 - Id somente uma palavra
 
             # juntar 6 7 8 no mesmo padrão
             # duas analise, uma palavra ou mais de uma palava
@@ -154,8 +174,18 @@ with open('FinalResultCategories.csv', mode = 'w') as csv_file:
             writer.writerow({'IDENTIFICADOR':identificador, 'TIPO':tipo, 'POSICAO':posicao, 'NUM_DE_PALAVRAS':numeroPalavra, 
             'NOME_NUM_FINAL':numFinal,'NOME_NUM_MEIO':numMeio,'NOME_TIPO_IGUAL':idIgualTipo, 'TIPO_PARTE_NOME':tipoNoId,'NOME_PARTE_TIPO':idNoTipo,'NOME_UMA_LETRA':idUmaLetra,'NOME_INICIA_UNDERLINE':idIniciado_,'LETRA_INICIA_TIPO':letraInicioTipo})
 
-          
-            
+
+with open('results.txt', 'w') as arquivo:
+    arquivo.write("Nomes de identificadores que possuem alguma categoria de nomeação:")    
+    arquivo.write(f'Kings: {kings}\n')
+    arquivo.write(f'Median: {median}\n')
+    arquivo.write(f'Ditto: {ditto}\n')
+    arquivo.write(f'Diminutive: {diminutive}\n')
+    arquivo.write(f'Cognome: {cognome}\n')
+    arquivo.write(f'Index: {index}\n')
+    arquivo.write(f'Shorten: {shorten}\n')
+
+    
         
    
 
