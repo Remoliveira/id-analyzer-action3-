@@ -1,8 +1,13 @@
 Nomes de identificadores que possuem alguma categoria de nomeação:
-Kings: bookService1
-Median: amount3ToPay
-Ditto: cart cart book
-Diminutive: 
-Cognome: 
-Index: b c
-Shorten: b
+Kings:
+bookService1 - tempActionFolderIdAnalyzer_v1/java1.java
+Median:
+amount3ToPay - tempActionFolderIdAnalyzer_v1/java1.java
+Ditto:
+cart - tempActionFolderIdAnalyzer_v1/java1.javacart - tempActionFolderIdAnalyzer_v1/java1.javabook - tempActionFolderIdAnalyzer_v1/java1.java
+Cognome:
+
+Index:
+b - tempActionFolderIdAnalyzer_v1/java1.javac - tempActionFolderIdAnalyzer_v1/java1.java
+Shorten:
+b - tempActionFolderIdAnalyzer_v1/java1.java

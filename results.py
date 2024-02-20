@@ -28,7 +28,7 @@ for row in identificadoresCsv.iterrows():
         identificador = csvEntries.nome.replace(" ", "")
         # print(identificador)
         tipo = csvEntries.tipo
-
+        arquivo = csvEntries.arquivo
         posicao = csvEntries.posicao
     
 
@@ -46,21 +46,34 @@ for row in identificadoresCsv.iterrows():
         if(re.search("\d$", identificador)):
  
             numFinal = 1
+
+            id = {
+                "name": identificador,
+                "arquivo":arquivo
+            }
       
-            kings.append(identificador)
+            kings.append(id)
         else:
             numFinal = 0
         
         if(re.search("\d+.*\D+$",identificador)):
             # print("id com numero no meio: ",identificador, "tipo: ",tipo, projeto)
             numMeio = 1
-            median.append(identificador)
+            id = {
+                "name": identificador,
+                "arquivo":arquivo
+            }
+            median.append(id)
         else:
             numMeio = 0
         
         if(identificador.casefold() == tipo.casefold()):
             # print("id == tipo ", identificador, "--", tipo)
-            ditto.append(identificador)
+            id = {
+                "name": identificador,
+                "arquivo":arquivo
+            }
+            ditto.append(id)
             idIgualTipo = 1
         else:
             idIgualTipo = 0
@@ -76,12 +89,20 @@ for row in identificadoresCsv.iterrows():
                     
                     if(len(idSplit)> len(tipoSplit)):
                         # print(identificador,"-----",tipo, projeto)
-                        cognome.append(identificador)
+                        id = {
+                            "name": identificador,
+                            "arquivo":arquivo
+                        }
+                        cognome.append(id)
                         tipoNoId = 1
 
                     elif(len(tipoSplit)> len(idSplit)):
                         # print(identificador,"-----",tipo, projeto)
-                        diminutive.append(identificador)
+                        id = {
+                            "name": identificador,
+                            "arquivo":arquivo
+                        }
+                        diminutive.append(id)
                         idNoTipo = 1
 
           
@@ -90,14 +111,22 @@ for row in identificadoresCsv.iterrows():
         if(len(identificador) == 1):
 
             idUmaLetra = 1
-            index.append(identificador)
+            id = {
+                "name": identificador,
+                "arquivo":arquivo
+            }
+            index.append(id)
             if(len(tipo)>0):
       
                 tipoLower = tipo[0].lower()
       
                 if(identificador == tipoLower):
              
-                    shorten.append(identificador)
+                    id = {
+                        "name": identificador,
+                        "arquivo":arquivo
+                    }
+                    shorten.append(id)
                     letraInicioTipo = 1
                 else:
                     letraInicioTipo = 0
@@ -119,23 +148,69 @@ for row in identificadoresCsv.iterrows():
 
 
 with open('results.txt', 'w') as arquivo:
-    arquivo.write("Nomes de identificadores que possuem alguma categoria de nomeação:\n")    
+    arquivo.write("Idenfier names:\n")    
 
-    kings = ' '.join(kings)
-    median = ' '.join(median)
-    ditto = ' '.join(ditto)
-    diminutive = ' '.join(diminutive)
-    cognome = ' '.join(cognome)
-    index = ' '.join(index)
-    shorten = ' '.join(shorten)
+    # kings = ' '.join(kings)
+    # median = ' '.join(median)
+    # ditto = ' '.join(ditto)
+    # diminutive = ' '.join(diminutive)
+    # cognome = ' '.join(cognome)
+    # index = ' '.join(index)
+    # shorten = ' '.join(shorten)
 
-    arquivo.write(f'Kings: {kings}\n')
-    arquivo.write(f'Median: {median}\n')
-    arquivo.write(f'Ditto: {ditto}\n')
-    arquivo.write(f'Diminutive: {diminutive}\n')
-    arquivo.write(f'Cognome: {cognome}\n')
-    arquivo.write(f'Index: {index}\n')
-    arquivo.write(f'Shorten: {shorten}\n')
+    arquivo.write(f'Kings:\n')
+  
+    for id in kings:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+
+    arquivo.write("\n")
+
+    arquivo.write(f'Median:\n')
+    
+    for id in median:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+    
+    arquivo.write("\n")
+    
+    arquivo.write(f'Ditto:\n')
+    
+    for id in ditto:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+    
+    arquivo.write("\n")
+
+    arquivo.write(f'Cognome:\n')
+    
+    for id in cognome:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+
+    arquivo.write("\n")
+
+    arquivo.write(f'Index:\n')
+    for id in index:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+
+    arquivo.write("\n")
+
+    arquivo.write(f'Shorten:\n')
+    for id in shorten:  
+        arquivo.write(id["name"])
+        arquivo.write(" - ")
+        arquivo.write(id["arquivo"])
+
+    arquivo.write("\n")
+
+
 
     
         
