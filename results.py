@@ -164,6 +164,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
 
     arquivo.write("\n")
 
@@ -173,6 +174,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
     
     arquivo.write("\n")
     
@@ -182,6 +184,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
     
     arquivo.write("\n")
 
@@ -191,6 +194,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
 
     arquivo.write("\n")
 
@@ -199,6 +203,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
 
     arquivo.write("\n")
 
@@ -207,6 +212,7 @@ with open('results.txt', 'w') as arquivo:
         arquivo.write(id["name"])
         arquivo.write(" - ")
         arquivo.write(id["arquivo"])
+        arquivo.write("\n")
 
     arquivo.write("\n")
 
