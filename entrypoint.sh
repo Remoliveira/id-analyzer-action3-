@@ -11,7 +11,7 @@ mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
 # mv java1.java tempActionFolderIdAnalyzer_v1/
 
 #convert files to srcml
-srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml
+srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml 2> logs.txt
 
 #generate a file with the identifiers within the project
 cd ..
