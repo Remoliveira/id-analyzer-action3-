@@ -19,7 +19,9 @@ cd ..
 mv /github/workspace/master.xml /
 
 
-python3 CatchIdentifiers.py > output.txt 2> logs.txt
+# python3 CatchIdentifiers.py > output.txt 2> logs.txt
+python3 CatchIdentifiers.py >&2 
+
 
 python3 results.py
 
