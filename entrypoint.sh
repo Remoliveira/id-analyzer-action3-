@@ -5,13 +5,13 @@
 
 
 #setup directory
-mkdir tempActionFolderIdAnalyzer_v1
+mkdir fold
 shopt -s extglob
-mv !(tempActionFolderIdAnalyzer_v1) tempActionFolderIdAnalyzer_v1/
-# mv java1.java tempActionFolderIdAnalyzer_v1/
+mv !(fold) fold/
+# mv java1.java fold/
 
 #convert files to srcml
-srcml --verbose tempActionFolderIdAnalyzer_v1 -o master.xml 2> logs.txt
+srcml --verbose fold -o master.xml 2> logs.txt
 
 #generate a file with the identifiers within the project
 cd ..
