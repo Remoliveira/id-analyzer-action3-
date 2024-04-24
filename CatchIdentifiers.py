@@ -321,7 +321,7 @@ def run(arq):
 def main():
 
     arq = os.listdir()
-    print(arq)
+    # print(arq)
     for arquivo in arq:
 
         if (re.search(".xml", arquivo) and arquivo != "classeXpath.xml" and arquivo != "funcXpath.xml"):
@@ -336,7 +336,7 @@ def main():
                 writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                 writer.writeheader()
 
-            print(arquivo)
+            # print(arquivo)
             run(arquivo)
 
 

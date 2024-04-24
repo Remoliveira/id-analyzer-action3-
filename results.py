@@ -1,6 +1,6 @@
 import re 
 import pandas as pd
-
+from pyfiglet import Figlet
 
 
 def camelSplit(identifier):
@@ -148,7 +148,6 @@ for row in identificadoresCsv.iterrows():
 
 
 with open('results.txt', 'w') as arquivo:
-    arquivo.write("Idenfier names:\n")    
 
     # kings = ' '.join(kings)
     # median = ' '.join(median)
@@ -158,63 +157,76 @@ with open('results.txt', 'w') as arquivo:
     # index = ' '.join(index)
     # shorten = ' '.join(shorten)
 
-    arquivo.write(f'Kings:\n')
-  
-    for id in kings:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
-        arquivo.write("\n")
+    f = Figlet(font='slant')
+    x = f.renderText('Id. Analyzer')
+    arquivo.write(x)   
 
-    arquivo.write("\n")
+    if(len(kings) > 0):
+        arquivo.write(f'Kings:\n')
+        for id in kings:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
 
-    arquivo.write(f'Median:\n')
-    
-    for id in median:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
         arquivo.write("\n")
     
-    arquivo.write("\n")
-    
-    arquivo.write(f'Ditto:\n')
-    
-    for id in ditto:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
-        arquivo.write("\n")
-    
-    arquivo.write("\n")
 
-    arquivo.write(f'Cognome:\n')
+
+    if(len((median)) >0 ):
+        arquivo.write(f'Median:\n')
     
-    for id in cognome:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
-        arquivo.write("\n")
-
-    arquivo.write("\n")
-
-    arquivo.write(f'Index:\n')
-    for id in index:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
+        for id in median:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
+            
+            arquivo.write("\n")
+        
+    
+   
+    if(len(ditto) > 0):
+        arquivo.write(f'Ditto:\n')
+        for id in ditto:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
+        
         arquivo.write("\n")
 
-    arquivo.write("\n")
+    
+    if(len(cognome) > 0):
+        arquivo.write(f'Cognome:\n')
+        for id in cognome:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
 
-    arquivo.write(f'Shorten:\n')
-    for id in shorten:  
-        arquivo.write(id["name"])
-        arquivo.write(" - ")
-        arquivo.write(id["arquivo"])
         arquivo.write("\n")
 
-    arquivo.write("\n")
+    if(len(index) > 0):
+        arquivo.write(f'Index:\n')
+        for id in index:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
+
+        arquivo.write("\n")
+
+    
+    if(len(shorten) >0):
+        arquivo.write(f'Shorten:\n')
+        for id in shorten:  
+            arquivo.write(id["name"])
+            arquivo.write(" - ")
+            arquivo.write(id["arquivo"])
+            arquivo.write("\n")
+
+        arquivo.write("\n")
 
 
 

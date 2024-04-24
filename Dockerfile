@@ -17,6 +17,7 @@ RUN  apt-get install -y python3
 
 RUN  apt-get install -y pip
 RUN pip install pandas
+RUN pip install pyfiglet
 
 RUN wget http://131.123.42.38/lmcrs/v1.0.0/srcml_1.0.0-1_ubuntu20.04.deb
 
